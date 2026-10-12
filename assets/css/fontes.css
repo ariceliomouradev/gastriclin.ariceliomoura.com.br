@@ -1,0 +1,60 @@
+/* Fontes do site, servidas pelo próprio domínio (sem Google Fonts).
+   "fallback" = fonte do sistema com medidas ajustadas para ocupar o mesmo espaço: o layout não "pula" ao carregar.
+   font-display: optional = a fonte só é usada se chegar a tempo; nunca troca depois que a página aparece. */
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/assets/fonts/inter-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Inter fallback';
+  src: local('Arial');
+  font-weight: 100 900;
+  font-style: normal;
+  size-adjust: 107.1194%;
+  ascent-override: 90.4365%;
+  descent-override: 22.518%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/assets/fonts/fraunces-latin-wght-normal.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Fraunces';
+  src: url('/assets/fonts/fraunces-latin-wght-italic.woff2') format('woff2');
+  font-weight: 100 900;
+  font-style: italic;
+  font-display: optional;
+}
+@font-face {
+  font-family: 'Fraunces fallback';
+  src: local('Times New Roman');
+  font-weight: 100 900;
+  font-style: normal;
+  size-adjust: 127.0154%;
+  ascent-override: 76.9985%;
+  descent-override: 20.0763%;
+  line-gap-override: 0%;
+}
+@font-face {
+  font-family: 'Fraunces fallback';
+  src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT'), local('Times New Roman');
+  font-weight: 100 900;
+  font-style: italic;
+  size-adjust: 127.0154%;
+  ascent-override: 76.9985%;
+  descent-override: 20.0763%;
+  line-gap-override: 0%;
+}
+
+:root {
+  --fonte-inter: 'Inter', 'Inter fallback', Arial, sans-serif;
+  --fonte-fraunces: 'Fraunces', 'Fraunces fallback', Georgia, serif;
+}

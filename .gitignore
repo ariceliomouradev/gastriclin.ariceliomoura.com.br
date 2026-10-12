@@ -1,0 +1,10 @@
+# Dados gravados pelo painel no servidor (artigos, usuários, capas enviadas): nunca vão para o Git,
+# para que um novo deploy não apague o que foi publicado pelo /admin/.
+conteudo/
+uploads/
+
+# Arquivos temporários
+*.tmp
+__pycache__/
+.DS_Store
+Thumbs.db

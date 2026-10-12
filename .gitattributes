@@ -1,0 +1,7 @@
+# Texto sempre com quebra de linha Unix (servidor da Hostinger é Linux)
+* text=auto eol=lf
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.woff2 binary

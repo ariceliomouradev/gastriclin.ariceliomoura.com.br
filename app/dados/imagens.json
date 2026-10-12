@@ -1,0 +1,363 @@
+{
+ "clinica/consultorio": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "clinica/equipe": {
+  "w": 1066,
+  "h": 1600,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1066
+  ]
+ },
+ "clinica/fachada": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "clinica/fundadores": {
+  "w": 1066,
+  "h": 1600,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1066
+  ]
+ },
+ "clinica/recepcao": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "clinica/recepcao-2": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "clinica/sala-exame": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "clinica/sala-recuperacao": {
+  "w": 1306,
+  "h": 985,
+  "larguras": [
+   400,
+   640,
+   720,
+   960,
+   1280
+  ]
+ },
+ "convenios/amil": {
+  "w": 480,
+  "h": 173,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/assefaz": {
+  "w": 240,
+  "h": 240,
+  "larguras": [
+   160,
+   240
+  ]
+ },
+ "convenios/bradesco-saude": {
+  "w": 480,
+  "h": 128,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/cafaz": {
+  "w": 193,
+  "h": 240,
+  "larguras": [
+   160,
+   193
+  ]
+ },
+ "convenios/camed": {
+  "w": 480,
+  "h": 218,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/cassi": {
+  "w": 480,
+  "h": 238,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/geap": {
+  "w": 480,
+  "h": 196,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/ipm": {
+  "w": 480,
+  "h": 150,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/issec": {
+  "w": 480,
+  "h": 165,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/postal-saude": {
+  "w": 480,
+  "h": 116,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/sao-camilo": {
+  "w": 480,
+  "h": 149,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/saude-caixa": {
+  "w": 480,
+  "h": 172,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/saude-petrobras": {
+  "w": 478,
+  "h": 230,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "convenios/sulamerica": {
+  "w": 480,
+  "h": 122,
+  "larguras": [
+   160,
+   320
+  ]
+ },
+ "equipe/ana-beatriz": {
+  "w": 432,
+  "h": 581,
+  "larguras": [
+   96,
+   280,
+   420,
+   432
+  ]
+ },
+ "equipe/filipe-herson": {
+  "w": 541,
+  "h": 728,
+  "larguras": [
+   96,
+   280,
+   420,
+   541
+  ]
+ },
+ "equipe/isabelle-balduino": {
+  "w": 307,
+  "h": 413,
+  "larguras": [
+   96,
+   280,
+   307
+  ]
+ },
+ "equipe/izabella-dornellas": {
+  "w": 950,
+  "h": 1292,
+  "larguras": [
+   96,
+   280,
+   420,
+   560
+  ]
+ },
+ "equipe/lucas-manoel": {
+  "w": 307,
+  "h": 413,
+  "larguras": [
+   96,
+   280,
+   307
+  ]
+ },
+ "equipe/lucas-mapurunga": {
+  "w": 307,
+  "h": 413,
+  "larguras": [
+   96,
+   280,
+   307
+  ]
+ },
+ "equipe/matheus-castelo-branco": {
+  "w": 618,
+  "h": 841,
+  "larguras": [
+   96,
+   280,
+   420,
+   560
+  ]
+ },
+ "equipe/talita-vilarinho": {
+  "w": 803,
+  "h": 1080,
+  "larguras": [
+   96,
+   280,
+   420,
+   560
+  ]
+ },
+ "equipe/valdeline-sousa": {
+  "w": 799,
+  "h": 1078,
+  "larguras": [
+   96,
+   280,
+   420,
+   560
+  ]
+ },
+ "marca/gastriclin-branco": {
+  "w": 961,
+  "h": 274,
+  "larguras": [
+   170,
+   240,
+   340,
+   480
+  ]
+ },
+ "marca/gastriclin-roxo": {
+  "w": 961,
+  "h": 274,
+  "larguras": [
+   170,
+   240,
+   340,
+   480
+  ]
+ },
+ "servicos/colonoscopia": {
+  "w": 744,
+  "h": 1080,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ },
+ "servicos/coloproctologia": {
+  "w": 1080,
+  "h": 1080,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ },
+ "servicos/endoscopia": {
+  "w": 725,
+  "h": 1005,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ },
+ "servicos/gastroenterologia": {
+  "w": 1092,
+  "h": 1080,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ },
+ "servicos/polipectomia": {
+  "w": 860,
+  "h": 1080,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ },
+ "servicos/retossigmoidoscopia": {
+  "w": 1080,
+  "h": 1080,
+  "larguras": [
+   360,
+   540,
+   720
+  ]
+ }
+}

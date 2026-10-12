@@ -1,0 +1,61 @@
+# A cada envio para a branch main:
+#   1. verifica o site inteiro e o painel num servidor PHP zerado;
+#   2. se tudo passar, avisa a Hostinger para publicar (webhook de deploy automático).
+name: Verificar e publicar
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: gd, mbstring, dom, fileinfo
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Sintaxe de todos os arquivos PHP
+        run: find . -name '*.php' -not -path './.git/*' -print0 | xargs -0 -n1 php -l
+
+      - name: Subir o site num servidor PHP local
+        run: |
+          php -S 127.0.0.1:8080 -t . index.php > /tmp/php.log 2>&1 &
+          for i in $(seq 1 30); do curl -sf -o /dev/null http://127.0.0.1:8080/ && break; sleep 1; done
+
+      - name: Verificar todas as páginas
+        run: python ferramentas/verificar_site.py
+
+      - name: Testar o primeiro acesso ao painel
+        run: python ferramentas/testar_instalacao.py . /tmp/credenciais.env
+
+      - name: Testar o painel do blog
+        run: python ferramentas/testar_painel.py /tmp/credenciais.env originais/clinica/consultorio.jpg
+
+      - name: Log do PHP (só aparece se algo falhar)
+        if: failure()
+        run: cat /tmp/php.log
+
+  publicar:
+    needs: verificar
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Avisar a Hostinger para publicar
+        env:
+          HOSTINGER_WEBHOOK: ${{ secrets.HOSTINGER_WEBHOOK }}
+        run: |
+          if [ -z "$HOSTINGER_WEBHOOK" ]; then
+            echo "Segredo HOSTINGER_WEBHOOK não configurado: publicação automática desativada (veja o README)."
+            exit 0
+          fi
+          curl -fsS -X POST "$HOSTINGER_WEBHOOK" && echo "Publicação solicitada à Hostinger."
