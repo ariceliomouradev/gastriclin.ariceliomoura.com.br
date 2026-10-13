@@ -36,9 +36,6 @@ componente('topo-pagina', [
 ?>
   <section class="secao" id="artigos">
     <div class="container">
-      <?php if ($total_paginas > 1): ?>
-        <p class="blog-contagem">Página <?= $numero_pagina ?> de <?= $total_paginas ?> · <?= count($todos) ?> artigos, dos mais recentes aos mais antigos</p>
-      <?php endif; ?>
       <div class="grade grade--3">
         <?php foreach ($artigos as $p) componente('card-post', ['post' => $p, 'titulo' => 'h2']); ?>
       </div>
