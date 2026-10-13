@@ -47,7 +47,7 @@ if status != 200:
 paginas = [re.sub(r'^https?://[^/]+', '', u) for u in re.findall(r'<loc>([^<]+)</loc>', sitemap)] + ['/bio/']
 status_link = {}
 
-for caminho in paginas:
+for caminho in paginas:  # a lista cresce com as páginas do blog encontradas pelo caminho (/blog/pagina/N/)
     st, h = baixar(caminho)
     if st != 200:
         erros.append(f'{caminho}: HTTP {st}')
@@ -81,6 +81,9 @@ for caminho in paginas:
     for img in re.findall(r'<img\b[^>]*>', h):
         if not re.search(r'\salt=', img):
             erros.append(f'{caminho}: imagem sem alt')
+    for pag in re.findall(r'href="(/blog/pagina/\d+/)"', h):
+        if pag not in paginas:
+            paginas.append(pag)
     if 'data-cta="doctoralia"' not in h or 'data-cta="whatsapp"' not in h:
         erros.append(f'{caminho}: falta botão de agendamento')
     for href in set(re.findall(r'href="(/[^"#?]*)"', h)):
@@ -97,10 +100,13 @@ for caminho in ['/app/config.php', '/app/dados/medicos.php', '/conteudo/usuarios
     if st not in (403, 404):
         erros.append(f'{caminho}: deveria estar bloqueado, respondeu {st}')
 
-# Página inexistente
-st, _ = baixar('/pagina-que-nao-existe/')
-if st != 404:
-    erros.append(f'404 não funciona (respondeu {st})')
+# Página inexistente e página do blog além da última
+for caminho in ['/pagina-que-nao-existe/', '/blog/pagina/999/']:
+    st, _ = baixar(caminho)
+    if st != 404:
+        erros.append(f'{caminho}: deveria responder 404, respondeu {st}')
+if not any(p.startswith('/blog/pagina/') for p in paginas):
+    avisos.append('nenhuma página de paginação do blog encontrada')
 
 print(f'{len(paginas)} páginas verificadas, {len(status_link)} links internos conferidos')
 if avisos:

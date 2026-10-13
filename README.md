@@ -95,6 +95,7 @@ python ferramentas/verificar_site.py
 | Trocar foto | original em `originais/<grupo>/<nome>.jpg` + `python ferramentas/gerar_imagens.py` |
 | Cores e espaçamentos | `assets/css/site.css` |
 | Redirecionar URL antiga | `REDIRECIONAMENTOS` em `app/config.php` |
+| Quantidade de artigos por página do blog (hoje 9) | `ARTIGOS_POR_PAGINA` em `app/paginas/blog.php` |
 
 Toda alteração de código: `git add . && git commit -m "descrição" && git push`. O GitHub verifica e a Hostinger publica.
 

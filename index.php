@@ -81,6 +81,14 @@ if (isset($rotas[$caminho])) {
     exit;
 }
 
+// Blog paginado: /blog/pagina/2/, /blog/pagina/3/ ... (a página 1 é sempre /blog/)
+if (preg_match('#^/blog/pagina/(\d+)/$#', $caminho, $m)) {
+    $numero_pagina = (int) $m[1];
+    if ($numero_pagina <= 1) redirecionar('/blog/');
+    require APP . '/paginas/blog.php';
+    exit;
+}
+
 // Páginas na raiz do domínio: serviços (/endoscopia/), perfis (/dr-.../) e artigos do blog (/<slug>/)
 $slug = trim($caminho, '/');
 if (slug_valido($slug)) {
