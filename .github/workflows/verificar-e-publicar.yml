@@ -59,3 +59,19 @@ jobs:
             exit 0
           fi
           curl -fsS -X POST "$HOSTINGER_WEBHOOK" && echo "Publicação solicitada à Hostinger."
+
+      # O LiteSpeed da Hostinger guarda as páginas por 1 hora. Visitar /admin/ (nunca fica em cache) faz o site
+      # perceber a versão nova e apagar esse cache. Visita algumas vezes porque a Hostinger leva um tempo para copiar.
+      # Precisa da variável SITE_URL do repositório (ex.: https://www.seudominio.com.br), sem barra no final.
+      - name: Renovar o cache das páginas
+        env:
+          SITE_URL: ${{ vars.SITE_URL }}
+        run: |
+          if [ -z "$SITE_URL" ]; then
+            echo "Variável SITE_URL não configurada: o cache das páginas se renova na primeira visita a uma página fora do cache (até 1 hora)."
+            exit 0
+          fi
+          for espera in 30 30 60 60; do
+            sleep $espera
+            curl -s -o /dev/null -w "Visita a $SITE_URL/admin/: HTTP %{http_code}\n" "$SITE_URL/admin/" || true
+          done

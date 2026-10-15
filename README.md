@@ -67,8 +67,17 @@ python ferramentas/verificar_site.py
    - **Branch:** `main`. **Diretório:** deixe vazio (instala na `public_html` do domínio ou subdomínio).
    - Clique em **Criar** e depois em **Deploy**.
 5. **Deploy automático só depois das verificações:** na mesma tela, ative o *Deploy automático* e **copie a URL do webhook**. No GitHub, **não** cadastre essa URL em *Webhooks*. Cadastre em *Settings → Secrets and variables → Actions → New repository secret*, com o nome `HOSTINGER_WEBHOOK`. Assim, o GitHub só chama a Hostinger quando todas as verificações passam.
+   - **Renovar o cache depois de publicar:** em *Settings → Secrets and variables → Actions → aba Variables → New repository variable*, crie `SITE_URL` com o endereço do site (ex.: `https://gastriclin.com.br`, sem barra no final). Depois de cada publicação, o GitHub visita o site e ele apaga o cache de páginas da Hostinger. Sem essa variável, o site ainda se renova sozinho, mas pode mostrar a versão anterior por até 1 hora.
 6. **Primeiro acesso ao painel:** abra `https://SEU-DOMINIO/admin/`. O painel pede um **código de instalação**. No hPanel, abra o *Gerenciador de Arquivos* → `public_html/conteudo/chave-instalacao.txt`, copie o código e crie o administrador. O arquivo é apagado sozinho depois disso.
 7. **Conferir:** páginas, painel e endereços antigos (ex.: `/dr-matheus-brito/` deve redirecionar). Depois, envie o sitemap `https://gastriclin.com.br/sitemap.xml` no Google Search Console.
+
+## Cache das páginas (Hostinger)
+
+O `.htaccess` pede ao servidor (LiteSpeed) para guardar cada página pronta por **1 hora**. Isso deixa o site mais rápido, mas faz uma publicação nova demorar a aparecer se o cache não for limpo.
+
+- **Publicação pelo GitHub:** a primeira página gerada depois da publicação percebe que o código mudou (data e tamanho dos arquivos, registrados em `conteudo/.versao-do-site`) e apaga o cache. O passo *Renovar o cache das páginas* do GitHub Actions força isso logo depois de publicar (precisa da variável `SITE_URL`).
+- **Artigo publicado pelo painel:** o painel apaga o cache na hora.
+- **Ainda vendo a versão antiga?** No hPanel, abra *Avançado → Cache Manager → Limpar todo o cache*. Se o **CDN da Hostinger** estiver ativo, limpe também o cache do CDN. Por último, recarregue o navegador com Ctrl+F5.
 
 ## Agenda online (/agendar/)
 

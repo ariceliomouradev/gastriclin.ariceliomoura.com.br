@@ -12,6 +12,7 @@ require_once APP . '/config.php';
 require_once APP . '/blog.php';
 
 garantir_conteudo();
+renovar_cache_apos_publicacao();
 
 /**
  * Na primeira execução no servidor, cria conteudo/ e copia os artigos de dados-iniciais/.
@@ -26,6 +27,35 @@ function garantir_conteudo(): void
     }
     // Proteção extra caso o .htaccess principal seja alterado
     @file_put_contents(CONTEUDO . '/.htaccess', "Require all denied\n");
+}
+
+/**
+ * O LiteSpeed da Hostinger guarda as páginas prontas por 1 hora (.htaccess). Depois de uma publicação pelo GitHub,
+ * a primeira página gerada pelo PHP percebe que o código mudou e pede para apagar esse cache; assim ninguém vê a
+ * versão antiga (por exemplo, botões com o link de antes). A "impressão digital" é a data e o tamanho dos arquivos
+ * do site, que mudam a cada publicação; ela fica guardada em conteudo/ (fora do Git).
+ */
+function renovar_cache_apos_publicacao(): void
+{
+    $arquivos = array_merge(
+        [RAIZ . '/index.php', RAIZ . '/.htaccess'],
+        glob(APP . '/*.php') ?: [],
+        glob(APP . '/{componentes,layout,paginas,dados}/*', GLOB_BRACE) ?: [],
+        glob(RAIZ . '/assets/{css,js}/*', GLOB_BRACE) ?: []
+    );
+    $digital = '';
+    foreach ($arquivos as $arquivo) {
+        $digital .= $arquivo . ':' . @filemtime($arquivo) . ':' . @filesize($arquivo) . "
+";
+    }
+    $digital = md5($digital);
+
+    $registro = CONTEUDO . '/.versao-do-site';
+    if (@file_get_contents($registro) === $digital) return;
+    // Só pede a limpeza se conseguir registrar a versão (evita limpar o cache a cada visita se a pasta não aceitar gravação)
+    if (@file_put_contents($registro, $digital, LOCK_EX) !== false && !headers_sent()) {
+        header('X-LiteSpeed-Purge: *');
+    }
 }
 
 // ---------------------------------------------------------------- Texto
