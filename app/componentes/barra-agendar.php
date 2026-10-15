@@ -5,7 +5,7 @@ $servico ??= null;
 $dados = 'data-origem="barra-celular"' . ($servico ? ' data-servico="' . e($servico) . '"' : '');
 ?>
 <div class="barra-agendar" aria-label="Agendamento rápido" role="region">
-  <a href="<?= e(SITE['links']['doctoralia']) ?>" target="_blank" rel="noopener" class="barra__btn barra__btn--agendar" data-cta="doctoralia" <?= $dados ?>>
+  <a href="/agendar/" class="barra__btn barra__btn--agendar" data-cta="doctoralia" <?= $dados ?>>
     <?= icone('calendario', 20) ?>
     Agendar online
   </a>

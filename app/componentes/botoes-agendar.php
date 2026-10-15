@@ -13,10 +13,9 @@ $extra = $tamanho === 'pequeno' ? ' btn--pequeno' : '';
 $dados = 'data-origem="' . e($origem) . '"' . ($servico ? ' data-servico="' . e($servico) . '"' : '');
 ?>
 <div class="botoes-agendar<?= $classe ? ' ' . e($classe) : '' ?>">
-  <a class="btn btn--agendar<?= $extra ?>" href="<?= e(SITE['links']['doctoralia']) ?>" target="_blank" rel="noopener" data-cta="doctoralia" <?= $dados ?>>
+  <a class="btn btn--agendar<?= $extra ?>" href="/agendar/" data-cta="doctoralia" <?= $dados ?>>
     <?= icone('calendario') ?>
     <?= e($texto_agendar) ?>
-    <span class="visualmente-oculto"> (abre a agenda da Doctoralia em nova aba)</span>
   </a>
   <a class="btn btn--whatsapp<?= $extra ?>" href="<?= e(whatsapp_url(mensagem_agendamento($servico))) ?>" target="_blank" rel="noopener" data-cta="whatsapp" <?= $dados ?>>
     <?= icone('whatsapp') ?>

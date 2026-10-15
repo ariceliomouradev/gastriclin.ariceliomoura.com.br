@@ -1,7 +1,7 @@
 <?php
 // /sitemap.xml – gerado na hora: páginas fixas, serviços, perfis e artigos publicados (com data de atualização).
 $urls = [];
-foreach (['/', '/especialidades/', '/exames/', '/clinico/', '/convenios/', '/sobre/', '/blog/', '/privacidade/'] as $c) $urls[] = [$c, null];
+foreach (['/', '/especialidades/', '/exames/', '/clinico/', '/convenios/', '/sobre/', '/agendar/', '/blog/', '/privacidade/'] as $c) $urls[] = [$c, null];
 foreach (servicos() as $s) $urls[] = ["/{$s['slug']}/", null];
 foreach (profissionais_ativos() as $p) $urls[] = ["/{$p['slug']}/", null];
 foreach (posts() as $p) $urls[] = ["/{$p['slug']}/", $p['atualizado_em'] ?: $p['publicado_em']];

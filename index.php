@@ -72,6 +72,7 @@ $rotas = [
     '/clinico/' => 'clinico',
     '/convenios/' => 'convenios',
     '/sobre/' => 'sobre',
+    '/agendar/' => 'agendar',
     '/blog/' => 'blog',
     '/bio/' => 'bio',
     '/privacidade/' => 'privacidade',

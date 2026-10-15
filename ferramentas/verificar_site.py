@@ -13,7 +13,7 @@ import urllib.error
 import urllib.request
 
 BASE = (sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:8080').rstrip('/')
-PERMITIDAS = re.compile(r'GastriClin|WhatsApp|SulAmérica|Doctoralia|YouTube|LinkedIn|pHmetria')
+PERMITIDAS = re.compile(r'GastriClin|WhatsApp|SulAmérica|Doctoralia|YouTube|LinkedIn|pHmetria|JavaScript')
 BLOCOS = 'p|div|section|article|header|footer|main|nav|aside|li|ul|ol|h[1-6]|br|tr|td|th|summary|details|address|blockquote|figure|button|time|small|title'
 
 
@@ -81,6 +81,15 @@ for caminho in paginas:  # a lista cresce com as páginas do blog encontradas pe
     for img in re.findall(r'<img\b[^>]*>', h):
         if not re.search(r'\salt=', img):
             erros.append(f'{caminho}: imagem sem alt')
+    # Agendamento online: todo botão "Agendar" abre a agenda embutida (/agendar/); só a página de links do Instagram
+    # (/bio/) e o plano B da própria /agendar/ apontam direto para a Doctoralia.
+    if caminho not in ('/bio/', '/agendar/'):
+        for tag in re.findall(r'<a [^>]*data-cta="doctoralia"[^>]*>', h):
+            href = re.search(r'href="([^"]*)"', tag)
+            if not href or href.group(1) != '/agendar/':
+                erros.append(f'{caminho}: botão de agendar online não leva a /agendar/ → {tag[:90]}')
+    if caminho == '/agendar/' and 'data-zl-widget-facility="gastriclin"' not in h:
+        erros.append('/agendar/: falta o código do widget da Doctoralia')
     for pag in re.findall(r'href="(/blog/pagina/\d+/)"', h):
         if pag not in paginas:
             paginas.append(pag)

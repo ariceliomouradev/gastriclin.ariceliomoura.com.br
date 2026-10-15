@@ -2495,3 +2495,138 @@ a.paginacao__seta:hover {
     padding: 0 0.5rem;
   }
 }
+
+/* ======================================================================
+   Página /agendar/ (agenda online da Doctoralia)
+   ====================================================================== */
+
+.agendar {
+  display: grid;
+  gap: clamp(2rem, 5vw, 3.5rem);
+  align-items: start;
+}
+@media (min-width: 961px) {
+  .agendar {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 460px);
+  }
+  /* No HTML a agenda vem primeiro (celular e leitores de tela); no desktop o texto de apoio fica à esquerda */
+  .agendar__info {
+    order: -1;
+    position: sticky;
+    top: calc(var(--header-altura) + 1.5rem);
+    max-width: 36rem;
+  }
+}
+.agenda {
+  position: relative;
+  min-height: 560px; /* reserva o espaço do calendário: a página não "pula" quando ele aparece */
+}
+/* O link original fica fora de vista: o script da Doctoralia o substitui pelo calendário */
+.agenda > a[data-zl-widget-facility] {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+.agenda iframe {
+  display: block;
+  width: 100%;
+  border: 0;
+  border-radius: var(--raio-lg);
+}
+.agenda__carregando {
+  position: absolute;
+  inset: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  min-height: 420px;
+  border: 1px dashed var(--roxo-200);
+  border-radius: var(--raio-lg);
+  background: var(--branco);
+  color: var(--texto-suave);
+}
+.agenda__carregando[hidden] {
+  display: none;
+}
+.agenda__spinner {
+  width: 22px;
+  height: 22px;
+  border: 3px solid var(--roxo-100);
+  border-top-color: var(--roxo-600);
+  border-radius: 50%;
+  animation: agenda-gira 0.8s linear infinite;
+}
+@keyframes agenda-gira {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .agenda__spinner {
+    animation-duration: 3s;
+  }
+}
+.agenda__falha {
+  padding: 1.75rem;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio-lg);
+  background: var(--branco);
+}
+.agenda__falha[hidden] {
+  display: none;
+}
+.agenda--falha {
+  min-height: 0;
+}
+.agenda__falha .btn {
+  white-space: normal;
+  text-align: center;
+}
+.agendar > * {
+  min-width: 0; /* evita que um botão largo estique a coluna no celular */
+}
+.agenda__falha p {
+  margin-bottom: 1.25rem;
+}
+.agendar__passos {
+  display: grid;
+  gap: 1rem;
+  margin: 0 0 2rem;
+  padding: 0;
+  list-style: none;
+  counter-reset: passo;
+}
+.agendar__passos li {
+  position: relative;
+  padding-left: 3.25rem;
+  counter-increment: passo;
+}
+.agendar__passos li::before {
+  content: counter(passo);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 50%;
+  background: var(--roxo-600);
+  color: var(--branco);
+  font-weight: 600;
+}
+.agendar__passos strong {
+  color: var(--roxo-900);
+}
+.agendar__info .cartao-agendar {
+  position: static;
+}
+.agendar__privacidade {
+  margin: 1.25rem 0 0;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}

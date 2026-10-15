@@ -24,8 +24,10 @@ componente('topo-pagina', [
 
       <h2>2. Quais dados este site coleta</h2>
       <p>
-        Este site não possui formulários e não coleta dados pessoais diretamente. Ao clicar em “Agendar online”, você é direcionado à plataforma Doctoralia; ao
-        clicar em “WhatsApp”, a conversa acontece no aplicativo WhatsApp. Cada plataforma tem sua própria política de privacidade.
+        Este site não possui formulários e não coleta dados pessoais diretamente. Ao clicar em “Agendar online”, você acessa a página de agendamento, onde
+        exibimos a agenda da Doctoralia dentro do nosso site. Esse conteúdo é fornecido e controlado pela Doctoralia (Docplanner), que pode usar cookies e
+        tratar dados conforme a política de privacidade dela. A reserva é confirmada no ambiente da Doctoralia, e nós não recebemos os dados que você informa
+        lá. Ao clicar em “WhatsApp”, a conversa acontece no aplicativo WhatsApp. Cada plataforma tem sua própria política de privacidade.
       </p>
       <p>
         Com o seu consentimento, usamos cookies de medição (Google Analytics) para entender, de forma agregada, como o site é usado. Você pode recusar esses cookies

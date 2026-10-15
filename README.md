@@ -70,6 +70,17 @@ python ferramentas/verificar_site.py
 6. **Primeiro acesso ao painel:** abra `https://SEU-DOMINIO/admin/`. O painel pede um **código de instalação**. No hPanel, abra o *Gerenciador de Arquivos* → `public_html/conteudo/chave-instalacao.txt`, copie o código e crie o administrador. O arquivo é apagado sozinho depois disso.
 7. **Conferir:** páginas, painel e endereços antigos (ex.: `/dr-matheus-brito/` deve redirecionar). Depois, envie o sitemap `https://gastriclin.com.br/sitemap.xml` no Google Search Console.
 
+## Agenda online (/agendar/)
+
+A página `/agendar/` mostra a **agenda da Doctoralia dentro do site** (widget oficial). Todo botão "Agendar online" do site leva a ela.
+
+- **Fluxo do paciente:** especialidade → serviço → convênio (ou "sem plano de saúde") → especialista → horário. Ao escolher o horário, a Doctoralia abre a confirmação em nova aba, e o site não recebe os dados do paciente.
+- **Código do widget:** em `app/paginas/agendar.php` (o `<a ... data-zl-widget-facility="gastriclin" ...>`). É o código fornecido pela Doctoralia; o carregamento do script é feito pela página, depois do `load`.
+- **Plano B:** se o script da Doctoralia falhar ou for bloqueado (12 s sem o calendário), aparecem os botões "Abrir agenda na Doctoralia" e "Agendar pelo WhatsApp".
+- **Só funciona em HTTPS:** o redimensionamento automático do widget só é aceito de `https://www.doctoralia.com.br`. Em `http://localhost` o iframe pode ficar com altura fixa de 450 px. Isso é só do teste local.
+- **Cookies:** o widget grava um cookie de terceiros da Doctoralia (descrito na política de privacidade).
+- **Trocar o tipo de widget:** o `data-zlw-type` define o formato (a Doctoralia tem outros, como botão flutuante). Use o gerador no painel da Doctoralia e substitua a tag `<a>`.
+
 ## Painel do blog (/admin/)
 
 | Papel | Pode |

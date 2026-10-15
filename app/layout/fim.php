@@ -1,6 +1,6 @@
     </main>
     <?php componente('footer'); ?>
-    <?php componente('barra-agendar', ['servico' => $pagina['servico'] ?? null]); ?>
+    <?php if (empty($pagina['sem_barra'])) componente('barra-agendar', ['servico' => $pagina['servico'] ?? null]); ?>
     <!-- Script embutido (como na versão Node): sem requisição extra. Fonte editável: assets/js/site.js -->
     <script type="module"><?php readfile(PUBLICO . '/assets/js/site.js'); ?></script>
     <?php if (SITE['ga4_id']): ?>

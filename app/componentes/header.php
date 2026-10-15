@@ -65,10 +65,9 @@ $links = [
       </ul>
 
       <div class="topo__acoes">
-        <a class="btn btn--agendar btn--pequeno" href="<?= e(SITE['links']['doctoralia']) ?>" target="_blank" rel="noopener" data-cta="doctoralia" data-origem="menu">
+        <a class="btn btn--agendar btn--pequeno" href="/agendar/" data-cta="doctoralia" data-origem="menu">
           <?= icone('calendario') ?>
-          Agendar
-          <span class="visualmente-oculto"> (abre a agenda da Doctoralia em nova aba)</span>
+          Agendar<span class="visualmente-oculto"> online</span>
         </a>
         <a class="btn btn--whatsapp btn--pequeno topo__whats" href="<?= e(whatsapp_url()) ?>" target="_blank" rel="noopener" data-cta="whatsapp" data-origem="menu">
           <?= icone('whatsapp') ?>

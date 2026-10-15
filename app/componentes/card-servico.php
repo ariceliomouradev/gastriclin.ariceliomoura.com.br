@@ -16,8 +16,8 @@ $dados = 'data-origem="' . e($origem) . '" data-servico="' . e($s['nome_agendame
   <div class="card-servico__rodape">
     <span class="card-servico__mais" aria-hidden="true">Saiba mais <?= icone('seta', 18) ?></span>
     <div class="card-servico__acoes">
-      <a class="btn btn--agendar btn--pequeno" href="<?= e(SITE['links']['doctoralia']) ?>" target="_blank" rel="noopener" data-cta="doctoralia" <?= $dados ?>>
-        Agendar<span class="visualmente-oculto"> <?= e($s['nome_agendamento']) ?> na Doctoralia (nova aba)</span>
+      <a class="btn btn--agendar btn--pequeno" href="/agendar/" data-cta="doctoralia" <?= $dados ?>>
+        Agendar<span class="visualmente-oculto"> <?= e($s['nome_agendamento']) ?> online</span>
       </a>
       <a class="btn btn--whatsapp btn--pequeno card-servico__whats" href="<?= e(whatsapp_url(mensagem_agendamento($s['nome_agendamento']))) ?>" target="_blank" rel="noopener" data-cta="whatsapp" <?= $dados ?>>
         <?= icone('whatsapp') ?>
