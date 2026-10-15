@@ -2,7 +2,7 @@
 // /bio/ – página de links usada na bio do Instagram (substitui /bio/, /links/ e /links-2/ do site antigo).
 $end = SITE['endereco'];
 $links = [
-    ['href' => SITE['links']['doctoralia'], 'rotulo' => 'Agendar consulta ou exame', 'detalhe' => 'Agenda online', 'icone' => 'calendario', 'cta' => 'doctoralia', 'estilo' => 'destaque'],
+    ['href' => '/agendar/', 'rotulo' => 'Agendar consulta ou exame', 'detalhe' => 'Agenda online', 'icone' => 'calendario', 'cta' => 'doctoralia', 'estilo' => 'destaque'],
     ['href' => whatsapp_url('Olá! Vim pelo Instagram da GastriClin e gostaria de agendar um atendimento.'), 'rotulo' => 'Agendar pelo WhatsApp', 'detalhe' => 'Fale com nosso atendimento', 'icone' => 'whatsapp', 'cta' => 'whatsapp', 'estilo' => 'whats'],
     ['href' => '/#servicos', 'rotulo' => 'Consultas e exames', 'detalhe' => 'Veja tudo o que oferecemos', 'icone' => 'estetoscopio'],
     ['href' => '/convenios/', 'rotulo' => 'Convênios', 'detalhe' => 'Planos aceitos', 'icone' => 'cartao'],

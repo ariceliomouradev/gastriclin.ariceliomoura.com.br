@@ -81,9 +81,9 @@ for caminho in paginas:  # a lista cresce com as páginas do blog encontradas pe
     for img in re.findall(r'<img\b[^>]*>', h):
         if not re.search(r'\salt=', img):
             erros.append(f'{caminho}: imagem sem alt')
-    # Agendamento online: todo botão "Agendar" abre a agenda embutida (/agendar/); só a página de links do Instagram
-    # (/bio/) e o plano B da própria /agendar/ apontam direto para a Doctoralia.
-    if caminho not in ('/bio/', '/agendar/'):
+    # Agendamento online: todo botão "Agendar" abre a agenda embutida (/agendar/); só o plano B da própria /agendar/
+    # (quando o widget não carrega) aponta direto para a Doctoralia.
+    if caminho != '/agendar/':
         for tag in re.findall(r'<a [^>]*data-cta="doctoralia"[^>]*>', h):
             href = re.search(r'href="([^"]*)"', tag)
             if not href or href.group(1) != '/agendar/':
