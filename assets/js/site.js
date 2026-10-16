@@ -61,6 +61,40 @@
     }
   });
 
+  // ---------------- Modal do sistema de resultados (laudos) ----------------
+  // O sistema (resultados.app.br) é externo: o iframe só é carregado quando o paciente abre o modal e é
+  // esvaziado ao fechar (nenhum resultado fica na tela de um aparelho compartilhado).
+  // Sem JavaScript ou sem <dialog>, o botão continua sendo um link normal para o sistema.
+  window.dataLayer = window.dataLayer || [];
+  var modal = document.querySelector('[data-laudo-modal]');
+  var abrirLaudo = document.querySelector('[data-laudo-abrir]');
+  if (modal && abrirLaudo && typeof modal.showModal === 'function') {
+    var quadro = modal.querySelector('[data-laudo-quadro]');
+    var carregando = modal.querySelector('[data-laudo-carregando]');
+    quadro.addEventListener('load', function () {
+      if (quadro.getAttribute('src') !== 'about:blank') carregando.hidden = true;
+    });
+    abrirLaudo.addEventListener('click', function (e) {
+      if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return; // "abrir em nova aba" do navegador
+      e.preventDefault();
+      carregando.hidden = false;
+      quadro.setAttribute('src', modal.dataset.url);
+      modal.showModal();
+      document.body.style.overflow = 'hidden';
+      var dadosLaudo = { origem: abrirLaudo.dataset.origem || '' };
+      window.dataLayer.push(Object.assign({ event: 'laudo_click' }, dadosLaudo));
+      if (document.body.getAttribute('data-ga4') && window.gtag) window.gtag('event', 'laudo_click', dadosLaudo);
+    });
+    modal.querySelector('[data-laudo-fechar]').addEventListener('click', function () { modal.close(); });
+    modal.addEventListener('close', function () {
+      quadro.setAttribute('src', 'about:blank');
+      document.body.style.overflow = '';
+      abrirLaudo.focus();
+    });
+    // "Abrir em outra aba" no topo do modal: fecha o modal para não manter duas telas de login abertas
+    modal.querySelector('[data-laudo-externo]').addEventListener('click', function () { modal.close(); });
+  }
+
   // ---------------- Analytics ----------------
   var gaId = document.body.getAttribute('data-ga4') || '';
   window.dataLayer = window.dataLayer || [];

@@ -95,6 +95,7 @@ require APP . '/layout/inicio.php';
         <div class="grade grade--4">
           <?php foreach (exames() as $s) componente('card-servico', ['servico' => $s, 'origem' => 'home-cards']); ?>
         </div>
+        <?php componente('card-laudo'); ?>
       </div>
 
       <p class="ajuda-whats">

@@ -33,6 +33,7 @@ const SITE = [
         'facebook' => 'https://www.facebook.com/profile.php?id=61575290969572',
         'google_maps' => 'https://maps.app.goo.gl/vTRcRVND5ANxgyjUA',
         'google_perfil' => 'https://g.co/kgs/N7MiVW5',
+        'resultados' => 'https://www.resultados.app.br/', // sistema de laudos e imagens (externo, sem integração com o site)
         'waze' => 'https://waze.com/ul?q=Rua%20Dom%20Sebasti%C3%A3o%20Leme%2C%201115%2C%20Fortaleza&navigate=yes',
     ],
 
