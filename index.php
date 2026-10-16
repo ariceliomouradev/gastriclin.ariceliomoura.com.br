@@ -15,6 +15,12 @@ if (PHP_SAPI === 'cli-server') {
     }
     $real = __DIR__ . (parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH) ?: '/');
     if ($real !== __DIR__ . '/' && is_file(rtrim($real, '/') . '/index.php')) return false;
+    // Pasta com index.html (ex.: /links/): entrega a página como o Apache faz
+    if ($real !== __DIR__ . '/' && str_ends_with($real, '/') && is_file($real . 'index.html')) {
+        header('Content-Type: text/html; charset=utf-8');
+        readfile($real . 'index.html');
+        return true;
+    }
     if ($real !== __DIR__ . '/' && is_file($real)) {
         $tipos = ['woff2' => 'font/woff2', 'webp' => 'image/webp', 'css' => 'text/css', 'js' => 'text/javascript', 'png' => 'image/png', 'jpg' => 'image/jpeg', 'svg' => 'image/svg+xml'];
         $ext = strtolower(pathinfo($real, PATHINFO_EXTENSION));
@@ -74,7 +80,6 @@ $rotas = [
     '/sobre/' => 'sobre',
     '/agendar/' => 'agendar',
     '/blog/' => 'blog',
-    '/bio/' => 'bio',
     '/privacidade/' => 'privacidade',
 ];
 if (isset($rotas[$caminho])) {

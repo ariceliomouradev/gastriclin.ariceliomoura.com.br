@@ -1,7 +1,7 @@
 # GastriClin – configuração do servidor (Hostinger / Apache / LiteSpeed)
 
 Options -Indexes
-DirectoryIndex index.php
+DirectoryIndex index.php index.html
 AddDefaultCharset UTF-8
 
 <IfModule mod_rewrite.c>

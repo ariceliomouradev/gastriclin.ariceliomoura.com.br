@@ -44,7 +44,7 @@ status, sitemap = baixar('/sitemap.xml')
 if status != 200:
     print('sitemap.xml fora do ar:', status)
     sys.exit(1)
-paginas = [re.sub(r'^https?://[^/]+', '', u) for u in re.findall(r'<loc>([^<]+)</loc>', sitemap)] + ['/bio/']
+paginas = [re.sub(r'^https?://[^/]+', '', u) for u in re.findall(r'<loc>([^<]+)</loc>', sitemap)]
 status_link = {}
 
 for caminho in paginas:  # a lista cresce com as páginas do blog encontradas pelo caminho (/blog/pagina/N/)
@@ -102,6 +102,21 @@ for caminho in paginas:  # a lista cresce com as páginas do blog encontradas pe
             status_link[href] = baixar(href)[0]
         if status_link[href] not in (200, 301, 302):
             erros.append(f'{caminho}: link interno quebrado → {href} ({status_link[href]})')
+
+# /bio/ (links do Instagram): pasta com index.html independente do restante do site
+st, h = baixar('/bio/')
+if st != 200:
+    erros.append(f'/bio/: HTTP {st}')
+else:
+    for esperado in ['https://gastriclin.com.br/', 'https://www.doctoralia.com.br/clinicas/gastriclin', 'https://api.whatsapp.com/message/', 'https://www.instagram.com/gastriclin/', 'https://g.co/kgs/']:
+        if esperado not in h:
+            erros.append(f'/bio/: falta o link {esperado}')
+    if len(re.findall(r'<img\b', h)) != 3 or 'data:image/' not in h:
+        erros.append('/bio/: as 3 imagens embutidas não foram encontradas')
+    if 'noindex' not in h:
+        erros.append('/bio/: deveria ter noindex')
+    if '<script' in h:
+        erros.append('/bio/: não deveria ter JavaScript')
 
 # Pastas internas não podem ser acessadas pela web
 for caminho in ['/app/config.php', '/app/dados/medicos.php', '/conteudo/usuarios.json', '/dados-iniciais/blog/', '/ferramentas/criar_usuario.php', '/.git/config', '/README.md']:
