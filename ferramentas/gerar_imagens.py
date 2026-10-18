@@ -1,10 +1,11 @@
 """Gera as imagens otimizadas (WebP em vários tamanhos) da versão PHP e o manifesto app/dados/imagens.json.
 
 Uso:  python ferramentas/gerar_imagens.py   (na raiz do repositório)
-Para uma foto nova: coloque o original em originais/<grupo>/<nome>.<ext> e rode de novo.
+Para uma foto nova ou trocada: coloque o original em originais/<grupo>/<nome>.<ext> e rode de novo.
 (Capas do blog enviadas pelo painel /admin são otimizadas pelo próprio PHP.)
 """
 import glob
+import hashlib
 import json
 import os
 from PIL import Image
@@ -54,7 +55,9 @@ for chave, arquivo in sorted(fontes().items()):
         os.makedirs(os.path.dirname(destino), exist_ok=True)
         im.resize((lw, lh), Image.LANCZOS).save(destino, 'WEBP', quality=qualidade, method=6)
         feitas.append(lw)
-    manifesto[chave] = {'w': w, 'h': h, 'larguras': feitas}
+    # "v" muda quando a foto original muda: entra no endereço (?v=...) para o navegador não mostrar a foto antiga do cache
+    versao = hashlib.md5(open(arquivo, 'rb').read()).hexdigest()[:8]
+    manifesto[chave] = {'w': w, 'h': h, 'larguras': feitas, 'v': versao}
 
 os.makedirs(os.path.dirname(MANIFESTO), exist_ok=True)
 json.dump(manifesto, open(MANIFESTO, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

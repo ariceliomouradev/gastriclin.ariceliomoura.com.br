@@ -8,7 +8,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "551e35d0"
  },
  "clinica/equipe": {
   "w": 1066,
@@ -19,7 +20,8 @@
    720,
    960,
    1066
-  ]
+  ],
+  "v": "a4d172ac"
  },
  "clinica/fachada": {
   "w": 1306,
@@ -30,7 +32,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "cc5a952c"
  },
  "clinica/fundadores": {
   "w": 1066,
@@ -41,7 +44,8 @@
    720,
    960,
    1066
-  ]
+  ],
+  "v": "821aeb4b"
  },
  "clinica/recepcao": {
   "w": 1306,
@@ -52,7 +56,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "aff306a4"
  },
  "clinica/recepcao-2": {
   "w": 1306,
@@ -63,7 +68,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "ef330d55"
  },
  "clinica/sala-exame": {
   "w": 1306,
@@ -74,7 +80,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "4d2421f9"
  },
  "clinica/sala-recuperacao": {
   "w": 1306,
@@ -85,7 +92,8 @@
    720,
    960,
    1280
-  ]
+  ],
+  "v": "72a2a179"
  },
  "convenios/amil": {
   "w": 480,
@@ -93,7 +101,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "69658290"
  },
  "convenios/assefaz": {
   "w": 240,
@@ -101,7 +110,8 @@
   "larguras": [
    160,
    240
-  ]
+  ],
+  "v": "0ac6cb77"
  },
  "convenios/bradesco-saude": {
   "w": 480,
@@ -109,7 +119,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "4a27b185"
  },
  "convenios/cafaz": {
   "w": 193,
@@ -117,7 +128,8 @@
   "larguras": [
    160,
    193
-  ]
+  ],
+  "v": "8dd7c872"
  },
  "convenios/camed": {
   "w": 480,
@@ -125,7 +137,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "84f3b9ea"
  },
  "convenios/cassi": {
   "w": 480,
@@ -133,7 +146,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "6929748d"
  },
  "convenios/geap": {
   "w": 480,
@@ -141,7 +155,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "1db2804f"
  },
  "convenios/ipm": {
   "w": 480,
@@ -149,7 +164,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "7aab7ff2"
  },
  "convenios/issec": {
   "w": 480,
@@ -157,7 +173,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "a9e670cb"
  },
  "convenios/postal-saude": {
   "w": 480,
@@ -165,7 +182,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "6bc9b8a7"
  },
  "convenios/sao-camilo": {
   "w": 480,
@@ -173,7 +191,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "65f3507e"
  },
  "convenios/saude-caixa": {
   "w": 480,
@@ -181,7 +200,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "ac7df0fb"
  },
  "convenios/saude-petrobras": {
   "w": 478,
@@ -189,7 +209,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "99c977be"
  },
  "convenios/sulamerica": {
   "w": 480,
@@ -197,7 +218,8 @@
   "larguras": [
    160,
    320
-  ]
+  ],
+  "v": "7902684e"
  },
  "equipe/ana-beatriz": {
   "w": 432,
@@ -207,7 +229,8 @@
    280,
    420,
    432
-  ]
+  ],
+  "v": "a75b0852"
  },
  "equipe/filipe-herson": {
   "w": 541,
@@ -217,7 +240,8 @@
    280,
    420,
    541
-  ]
+  ],
+  "v": "db104f14"
  },
  "equipe/isabelle-balduino": {
   "w": 307,
@@ -226,7 +250,8 @@
    96,
    280,
    307
-  ]
+  ],
+  "v": "70da7d7d"
  },
  "equipe/izabella-dornellas": {
   "w": 950,
@@ -236,7 +261,8 @@
    280,
    420,
    560
-  ]
+  ],
+  "v": "8a4e0afc"
  },
  "equipe/lucas-manoel": {
   "w": 307,
@@ -245,7 +271,8 @@
    96,
    280,
    307
-  ]
+  ],
+  "v": "0255ecc8"
  },
  "equipe/lucas-mapurunga": {
   "w": 307,
@@ -254,7 +281,8 @@
    96,
    280,
    307
-  ]
+  ],
+  "v": "5eb4f3bc"
  },
  "equipe/matheus-castelo-branco": {
   "w": 618,
@@ -264,7 +292,8 @@
    280,
    420,
    560
-  ]
+  ],
+  "v": "78383012"
  },
  "equipe/talita-vilarinho": {
   "w": 803,
@@ -274,7 +303,8 @@
    280,
    420,
    560
-  ]
+  ],
+  "v": "d2a3945f"
  },
  "equipe/valdeline-sousa": {
   "w": 799,
@@ -284,7 +314,8 @@
    280,
    420,
    560
-  ]
+  ],
+  "v": "40213fec"
  },
  "marca/gastriclin-branco": {
   "w": 961,
@@ -294,7 +325,8 @@
    240,
    340,
    480
-  ]
+  ],
+  "v": "5dd13c8b"
  },
  "marca/gastriclin-roxo": {
   "w": 961,
@@ -304,7 +336,8 @@
    240,
    340,
    480
-  ]
+  ],
+  "v": "7289346c"
  },
  "servicos/colonoscopia": {
   "w": 744,
@@ -313,7 +346,8 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "d1eeec79"
  },
  "servicos/coloproctologia": {
   "w": 1080,
@@ -322,7 +356,8 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "865706e8"
  },
  "servicos/endoscopia": {
   "w": 725,
@@ -331,7 +366,8 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "3db58ba6"
  },
  "servicos/gastroenterologia": {
   "w": 1092,
@@ -340,7 +376,8 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "e0ed40ed"
  },
  "servicos/polipectomia": {
   "w": 860,
@@ -349,7 +386,8 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "8a32223b"
  },
  "servicos/retossigmoidoscopia": {
   "w": 1080,
@@ -358,6 +396,7 @@
    360,
    540,
    720
-  ]
+  ],
+  "v": "ad48ebc8"
  }
 }

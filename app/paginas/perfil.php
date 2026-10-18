@@ -10,7 +10,7 @@ $schema = [
     'name' => nome_exibicao($p),
     'jobTitle' => $p['cargo'],
     'url' => SITE['url'] . "/{$p['slug']}/",
-    'image' => SITE['url'] . "/assets/img/{$p['foto']}-" . max(manifesto_imagens()[$p['foto']]['larguras']) . '.webp',
+    'image' => SITE['url'] . "/assets/img/{$p['foto']}-" . max(manifesto_imagens()[$p['foto']]['larguras']) . '.webp?v=' . (manifesto_imagens()[$p['foto']]['v'] ?? ''),
     'worksFor' => ['@id' => SITE['url'] . '/#clinica'],
 ];
 if ($p['medico']) {

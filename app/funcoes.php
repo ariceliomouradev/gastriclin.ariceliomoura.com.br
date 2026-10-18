@@ -240,7 +240,7 @@ function imagem(string $chave, string $alt, array $o = []): string
 {
     $info = manifesto_imagens()[$chave] ?? null;
     if (!$info) return '<!-- imagem não encontrada: ' . e($chave) . ' -->';
-    return montar_img('/assets/img/' . $chave, $info['w'], $info['h'], $info['larguras'], $alt, $o);
+    return montar_img('/assets/img/' . $chave, $info['w'], $info['h'], $info['larguras'], $alt, $o + ['versao' => $info['v'] ?? '']);
 }
 
 /** <img> da capa de um artigo (dados gravados no JSON do artigo). */
@@ -252,7 +252,9 @@ function imagem_capa(array $capa, string $alt, array $o = []): string
 function montar_img(string $base, int $w, int $h, array $larguras, string $alt, array $o): string
 {
     sort($larguras);
-    $url = fn(int $lw) => "{$base}-{$lw}.webp";
+    // ?v= muda quando a foto é trocada (ferramentas/gerar_imagens.py): o navegador baixa a nova em vez de usar a do cache
+    $v = empty($o['versao']) ? '' : '?v=' . $o['versao'];
+    $url = fn(int $lw) => "{$base}-{$lw}.webp{$v}";
     $exibida = $o['largura'] ?? (isset($o['altura']) ? (int) round($o['altura'] * $w / $h) : null);
 
     if ($exibida) {
