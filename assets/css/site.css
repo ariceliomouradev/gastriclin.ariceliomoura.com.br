@@ -405,8 +405,22 @@ a:hover {
 .grade--4 {
   grid-template-columns: repeat(4, 1fr);
 }
+/* Cards de médicos: até 5 por linha, mínimo 210px; a última linha fica centralizada
+   (com 4 médicos, ou quando alguém sai do site, os cards não ficam encostados à esquerda) */
 .grade--medicos {
-  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.grade--medicos > * {
+  flex: 0 1 max(210px, calc((100% - 4 * 1.25rem) / 5));
+  min-width: 0;
+}
+.grade--medicos > .card-medico {
+  height: auto; /* deixa a linha esticar: todos os cards com a mesma altura */
+}
+.gestao.grade--medicos > * {
+  flex-basis: 100%;
 }
 @media (max-width: 1080px) {
   .grade--4 {
@@ -423,8 +437,10 @@ a:hover {
     grid-template-columns: 1fr;
   }
   .grade--medicos {
-    grid-template-columns: repeat(2, 1fr);
     gap: 0.75rem;
+  }
+  .grade--medicos > * {
+    flex-basis: calc((100% - 0.75rem) / 2);
   }
 }
 
