@@ -125,7 +125,7 @@ return [
         'registro' => 'CRM-CE 21.813 | RQE 19.023',
         'medico' => true,
         'foto' => 'equipe/filipe-herson',
-        'ativo' => true,
+        'ativo' => false, // retirado do site em 19/10/2026 a pedido da clínica (/dr-filipe-herson/ redireciona para /clinico/)
         'resumo' => 'Consultas em gastroenterologia e endoscopia digestiva alta.',
         'bio' => [
             'Médico graduado pela Universidade Federal do Ceará, campus Sobral, com residência em Cirurgia Geral e especialização em Endoscopia Digestiva (RQE 19.023).',

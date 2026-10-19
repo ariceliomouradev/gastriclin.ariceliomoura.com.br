@@ -66,6 +66,7 @@ const REDIRECIONAMENTOS = [
     '/dra-isabelle-balduino-dantas/' => ['/clinico/', 302],
     '/dra-talita-de-lima-aquino-vilarinho/' => ['/clinico/', 302],
     '/dra-izabella-dornellas/' => ['/clinico/', 302],
+    '/dr-filipe-herson/' => ['/clinico/', 301], // saiu do site em 19/10/2026 a pedido da clínica
 ];
 // Prefixos de arquivos automáticos do WordPress que vão para o blog
 const REDIRECIONAMENTOS_PREFIXO = ['/category/', '/tag/', '/author/'];
